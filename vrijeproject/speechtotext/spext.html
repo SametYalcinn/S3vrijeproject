@@ -2,46 +2,69 @@
 <html lang="en">
 <head>
 
-    <meta charset="UTF-8">
     <title>SPEXT</title>
-    <link rel="icon" href="images/SPEXTicon.png">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-    <script  src="javascript.js"></script>
+
+    <meta charset="UTF-8">
+    <!--voor mobilie devices-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--icon van tablad-->
+    <link rel="icon" href="images/SPEXTicon.png">
+
+    <!--css en js link-->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script  src="javascript.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+
+
 </head>
-<body onload="action()">
 
-    <div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn"></button>
-        <div id="myDropdown" class="dropdown-content">
-            <table>
-            <tr>
-                <th><a id="nl1" href="#"><img src="images/nlicon.png" style="width: 40px"></a></th>
-                <th><a id="en1" href="#"><img src="images/enicon.png" style="width: 40px"></a></th>
-                <th><a id="fr1" href="#"><img src="images/fricon.png" style="width: 40px"></a></th>
-                <th><a id="es1" href="#"><img src="images/spicon.png" style="width: 40px"></a></th>
-            </tr>
-            </table>
+    <!--als de pagina wordt geladen start de script en wordt er opgenomen -->
+    <body onload="startRecognition()">
+
+        <!--dit is de dropdown van de talen -->
+        <div class="dropdown">
+
+            <!--indien er wordt geklikt op de button gaat de script clickDropdown() van start-->
+            <button onclick="clickDropdown()" class="dropbtn"></button>
+
+            <!--dit is er wat wordt laten zien m.b.v. de script indien er geklikt wordt op de button -->
+            <div id="languageDropdown" class="dropdown-content">
+
+                <!--de dropdown zit in een table-->
+                <table>
+                    <!--regel in een tabel-->
+                    <tr>
+                        <!--header in een tabel-->
+                        <th><a id="nl1" href="#"><img src="images/nlicon.png" style="width: 40px"></a></th>
+                        <th><a id="en1" href="#"><img src="images/enicon.png" style="width: 40px"></a></th>
+                        <th><a id="fr1" href="#"><img src="images/fricon.png" style="width: 40px"></a></th>
+                        <th><a id="es1" href="#"><img src="images/spicon.png" style="width: 40px"></a></th>
+                    </tr>
+                </table>
+            </div>
         </div>
-    </div>
 
-    <div class="logo">
-        <img id="logo1" src="images/SPEXTlogowit.png" >
-    </div>
+        <!--// logo van SPEXT-->
+        <div class="logo">
+            <img id="logo1" src="images/SPEXTlogowit.png" >
+        </div>
 
-    <input type="text" id="text" readonly value="Start met praten!">
-
-         <canvas id="canvas" width="150" height="300"></canvas>
-
-    <div class="mic">
-        <img src="mic.png" onclick="action()">
-    </div>
+        <!--gedeelte waar de tekst komt na een spraakherkenning-->
+        <!--met de value is er tekst ingezet, wat na start van de spraakherkenning verdwijnt-->
+        <input type="text" id="text" readonly value="Start met praten!">
 
 
+        <canvas id="canvas" width="150" height="300"></canvas>
 
+        <!--de mic is er geplaatst als het opnemen stopt bij het klikken wordt de spraakherkenning weer gestart-->
+        <div class="mic">
+            <img src="mic.png" onclick="startRecognition()">
+        </div>
 
-</body>
+    </body>
 
 </html>
